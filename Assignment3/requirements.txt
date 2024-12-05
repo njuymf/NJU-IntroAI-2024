@@ -1,0 +1,12 @@
+imageio
+pillow~=10.2.0
+pygame~=2.6.1
+scikit-learn~=1.5.1
+numpy~=1.26.3
+pandas~=2.2.2
+seaborn~=0.13.2
+matplotlib~=3.9.2
+imbalanced-learn~=0.12.3
+catboost~=1.2.3
+torch~=2.3.0+cu121
+torchvision~=0.18.0+cu121
