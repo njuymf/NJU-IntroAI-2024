@@ -1,3 +1,17 @@
+# Copyright 2018 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """
 A board is a NxN numpy array.
 A Coordinate is a tuple index into the board.
@@ -275,20 +289,21 @@ class Position():
                  lib_tracker=None, ko=None, recent=tuple(),
                  board_deltas=None, to_play=BLACK):
         """
-        board: 一个 numpy 数组
-        n: 一个表示已下棋步数的整数
-        komi: 一个浮点数，表示给第二个玩家的点数
-        caps: 一个 (int, int) 元组，表示黑白双方的提子数
-        lib_tracker: 一个 LibertyTracker 对象
-        ko: 一个 Move
-        recent: 一个 PlayerMoves 的元组，其中 recent[-1] 是最后一步
-        board_deltas: 一个形状为 (n, go.N, go.N) 的 numpy 数组，表示每一步对棋盘的改变
-            应满足 next_pos.board - next_pos.board_deltas[0] == pos.board
-        to_play: BLACK 或 WHITE
+        board: a numpy array
+        n: an int representing moves played so far
+        komi: a float, representing points given to the second player.
+        caps: a (int, int) tuple of captures for B, W.
+        lib_tracker: a LibertyTracker object
+        ko: a Move
+        recent: a tuple of PlayerMoves, such that recent[-1] is the last move.
+        board_deltas: a np.array of shape (n, go.N, go.N) representing changes
+            made to the board at each move (played move and captures).
+            Should satisfy next_pos.board - next_pos.board_deltas[0] == pos.board
+        to_play: BLACK or WHITE
         """
         assert type(recent) is tuple
         self.board = board if board is not None else np.copy(EMPTY_BOARD)
-        # 有完整的历史记录时，self.n == len(self.recent) == 已下棋步数
+        # With a full history, self.n == len(self.recent) == num moves played
         self.n = n
         self.komi = komi
         self.caps = caps

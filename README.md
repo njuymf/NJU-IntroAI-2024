@@ -17,5 +17,5 @@ https://www.lamda.nju.edu.cn/introAI/
 - [x] CartPole游戏(强化学习)
 
 ### 作业五
-- [ ] Mini_Go游戏(深度学习)
+- [X] Mini_Go游戏(深度学习)
 

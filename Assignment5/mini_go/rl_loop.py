@@ -1,7 +1,7 @@
 import random
 from environment.GoEnv import Go
 import time
-from agent.agent import RandomAgent
+from agent.RandomAgent import RandomAgent
 
 if __name__ == '__main__':
     begin = time.time()
